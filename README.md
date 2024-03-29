@@ -25,3 +25,6 @@
 
 ## Nav Bar
 	Search (by name, project name, **looking for work**, **looking for collaboration**)
+
+    **Home Button**
+    **Logout Button**
