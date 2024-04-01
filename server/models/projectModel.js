@@ -18,7 +18,7 @@ const projectSchema = new mongoose.Schema({
         default: Date.now,
         get: (timestamp) => dateFormat(timestamp)
     },
-    collab: {
+    openCollab: {
         type: Boolean,
         default: true,
         required: true

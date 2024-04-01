@@ -2,19 +2,19 @@
     {
         "name": "Capstone Project",
         "baseLanguage": "Java",
-        "collab": true,
+        "openCollab": true,
         "student": "62b8edf7e4b0c81d35fb1b70"
     },
     {
         "name": "Machine Learning Research",
         "baseLanguage": "Python",
-        "collab": false,
+        "openCollab": false,
         "student": "62b8edf7e4b0c81d35fb1b71"
     },
     {
         "name": "Web Development Bootcamp",
         "baseLanguage": "Javascript",
-        "collab": true,
+        "openCollab": true,
         "student": "62b8edf7e4b0c81d35fb1b72"
     }
 ]
