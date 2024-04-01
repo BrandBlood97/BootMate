@@ -1,4 +1,4 @@
-import NavBar from './components/Nav/NavBar';
+import NavBar from '../components/Nav/NavBar';
 
 export default function ProfilePage() {
     return (

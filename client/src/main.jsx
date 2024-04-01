@@ -8,8 +8,7 @@ import LoginPage from './pages/LoginPage.jsx';
 import ProfilePage from './pages/ProfilePage.jsx';
 
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-import ProfilePage from './pages/ProfilePage.jsx';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 const router = createBrowserRouter([
   {
