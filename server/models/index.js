@@ -1,3 +1,4 @@
-// Initialize all models and sources here
+const Student = require('./studentModel');
+const Project = require('./projectModel');
 
-module.exports = {};
+module.exports = { Student, Project};
