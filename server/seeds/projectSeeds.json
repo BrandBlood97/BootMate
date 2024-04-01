@@ -2,21 +2,18 @@
     {
         "name": "Capstone Project",
         "baseLanguage": "Java",
-        "createdAt": "Mar 20th, 2024 at 12:00 pm",
         "collab": true,
         "student": "62b8edf7e4b0c81d35fb1b70"
     },
     {
         "name": "Machine Learning Research",
         "baseLanguage": "Python",
-        "createdAt": "Feb 15th, 2024 at 8:30 am",
         "collab": false,
         "student": "62b8edf7e4b0c81d35fb1b71"
     },
     {
         "name": "Web Development Bootcamp",
         "baseLanguage": "Javascript",
-        "createdAt": "Jan 10th, 2024 at 3:45 pm",
         "collab": true,
         "student": "62b8edf7e4b0c81d35fb1b72"
     }
