@@ -1,0 +1,20 @@
+[
+    {
+        "name": "Capstone Project",
+        "baseLanguage": "Java",
+        "openCollab": true,
+        "student": "62b8edf7e4b0c81d35fb1b70"
+    },
+    {
+        "name": "Machine Learning Research",
+        "baseLanguage": "Python",
+        "openCollab": false,
+        "student": "62b8edf7e4b0c81d35fb1b71"
+    },
+    {
+        "name": "Web Development Bootcamp",
+        "baseLanguage": "Javascript",
+        "openCollab": true,
+        "student": "62b8edf7e4b0c81d35fb1b72"
+    }
+]
