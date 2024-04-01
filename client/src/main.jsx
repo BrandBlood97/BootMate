@@ -2,23 +2,30 @@ import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import App from './App.jsx';
+import ErrorPage from './pages/ErrorPage.jsx';
+import HomePage from './pages/HomePage.jsx';
+import LoginPage from './pages/LoginPage.jsx';
+import ProfilePage from './pages/ProfilePage.jsx';
+
+
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ProfilePage from './pages/ProfilePage.jsx';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    errorElement: <NotFound />,
+    errorElement: <ErrorPage />,
     children: [
       {
         index: true,
-        element: <Placeholder/>
+        element: <HomePage/>
       }, {
-        path: '/Placeholder',
-        element: <Placeholder />
+        path: '/login',
+        element: <LoginPage />
       }, {
-        path: '/Placeholder',
-        element: <Placeholder />
+        path: '/${studentName}',
+        element: <ProfilePage />
       },
     ],
   },
