@@ -1,0 +1,33 @@
+[
+    {
+        "firstName": "John",
+        "lastName": "Doe",
+        "email": "johndoe@example.com",
+        "password": "hashedpassword123",
+        "openEmploy": true,
+        "projects": [
+            "62b8edf7e4b0c81d35fb1b70",
+            "62b8edf7e4b0c81d35fb1b73"
+        ]
+    },
+    {
+        "firstName": "Jane",
+        "lastName": "Smith",
+        "email": "janesmith@example.com",
+        "password": "hashedpassword456",
+        "openEmploy": false,
+        "projects": [
+            "62b8edf7e4b0c81d35fb1b71"
+        ]
+    },
+    {
+        "firstName": "Alice",
+        "lastName": "Brown",
+        "email": "alicebrown@example.com",
+        "password": "hashedpassword789",
+        "openEmploy": true,
+        "projects": [
+            "62b8edf7e4b0c81d35fb1b72"
+        ]
+    }
+]
