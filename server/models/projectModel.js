@@ -23,6 +23,11 @@ const projectSchema = new mongoose.Schema({
         default: true,
         required: true
     },
+    description: {
+        type: String,
+        required: true,
+        trim: true
+    },
     student: {
         type: Schema.Types.ObjectId,
         ref: 'Student'
