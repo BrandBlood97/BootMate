@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const dateFormat = require('../utils/dateFormat');
 
 const projectSchema = new mongoose.Schema({
     name: {
@@ -12,11 +11,6 @@ const projectSchema = new mongoose.Schema({
         type: String,
         required: true,
         trim: true
-    },
-    createdAt: {
-        type: Date,
-        default: Date.now,
-        get: (timestamp) => dateFormat(timestamp)
     },
     openCollab: {
         type: Boolean,
