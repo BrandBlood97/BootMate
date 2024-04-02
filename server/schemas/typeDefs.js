@@ -13,7 +13,6 @@ type Project {
   id: ID!
   name: String!
   baseLanguage: String!
-  createdAt: Date!
   openCollab: Boolean!
   description: String!
   student: Student
@@ -29,7 +28,6 @@ type Auth {
     students: [Student]
     project(id: ID!, name: String): Project
     projects: [Project]
-    student: Student
   }
 
   type Mutation {
