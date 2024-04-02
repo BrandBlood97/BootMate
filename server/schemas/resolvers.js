@@ -19,6 +19,7 @@ const resolvers = {
       { name, baseLanguage, openCollab, description },
       context
     ) => {
+      
       // Check if the user is authenticated
       if (!context.isAuth) {
         throw new Error("Unauthenticated!");
@@ -51,7 +52,7 @@ const resolvers = {
 
     // Remove a project
     removeProject: async (_, { projectId }, context) => {
-      
+
       // Check if the user is authenticated and get the current student
       if (!context.isAuth) {
         throw new Error("Unauthenticated!");
@@ -78,6 +79,7 @@ const resolvers = {
       { projectId, openCollab, description },
       context
     ) => {
+
       // Check if the user is authenticated
       if (!context.isAuth) {
         throw new Error("Unauthenticated!");

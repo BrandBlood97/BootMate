@@ -31,7 +31,6 @@ type Auth {
     # ADD AUTH
     addStudent(firstName: String!, lastName: String!, email: String!, password: String!, openEmploy: Boolean!): Auth
     addProject(name: String!, baseLanguage: String!, openCollab: Boolean!): Student
-    addProjectToStudent(projectId: ID!): Student
     removeProject(projectId: ID!): Student
     updateProject(projectId: ID!, openCollab: Boolean!, description: String! ): Project
     login(email: String!, password: String!): Auth
