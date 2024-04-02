@@ -1,6 +1,7 @@
 import './App.css';
 import { Outlet } from 'react-router-dom';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
+import { ChakraProvider } from '@chakra-ui/react'
 
 const client = new ApolloClient({
   uri: '/graphql',
@@ -10,9 +11,9 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <div className="">
-        <Outlet />
-      </div>
+      <ChakraProvider>
+          <Outlet />
+      </ChakraProvider>
     </ApolloProvider>
   );
 }
