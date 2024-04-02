@@ -6,6 +6,7 @@ import ErrorPage from './pages/ErrorPage.jsx';
 import HomePage from './pages/HomePage.jsx';
 import LoginPage from './pages/LoginPage.jsx';
 import ProfilePage from './pages/ProfilePage.jsx';
+import SignupPage from './pages/SignupPage.jsx';
 
 
 // import 'bootstrap/dist/css/bootstrap.min.css';
@@ -23,9 +24,12 @@ const router = createBrowserRouter([
         path: '/login',
         element: <LoginPage />
       }, {
-        path: '/${studentName}',
+        path: '/profile',
         element: <ProfilePage />
-      },
+      }, {
+        path: '/signup',
+        element: <SignupPage />
+      }
     ],
   },
 ]);
