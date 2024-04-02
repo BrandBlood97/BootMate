@@ -6,8 +6,7 @@
         "password": "hashedpassword123",
         "openEmploy": true,
         "projects": [
-            "62b8edf7e4b0c81d35fb1b70",
-            "62b8edf7e4b0c81d35fb1b73"
+            "660b3ad435ff03c6031294e7"
         ]
     },
     {
@@ -17,7 +16,7 @@
         "password": "hashedpassword456",
         "openEmploy": false,
         "projects": [
-            "62b8edf7e4b0c81d35fb1b71"
+            "660b3ad435ff03c6031294e6"
         ]
     },
     {
@@ -27,7 +26,7 @@
         "password": "hashedpassword789",
         "openEmploy": true,
         "projects": [
-            "62b8edf7e4b0c81d35fb1b72"
+            "660b3ad435ff03c6031294e5"
         ]
     }
 ]
