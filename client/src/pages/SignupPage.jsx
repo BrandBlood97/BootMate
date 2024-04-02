@@ -69,37 +69,6 @@ export default function SignupPage() {
             // onChange={handleChange}
           />
         </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="pwd">Looking For Collaboration</label>
-          <input
-            placeholder="Select an Option"
-            name="collab"
-            type="list"
-            list="options"
-            id="collab"
-            // onChange={handleChange}
-          />
-        </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="linkedin">LinkedIn Profile: </label>
-          <input
-            placeholder="Enter LinkedIn Profile URL"
-            name="LinkedIn"
-            type="text"
-            id="LinkedIn"
-            // onChange={handleChange}
-          />
-        </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="github">GitHub Profile: </label>
-          <input
-            placeholder="Enter GitHub Profile URL"
-            name="GitHub"
-            type="text"
-            id="GitHub"
-            // onChange={handleChange}
-          />
-        </div>
         <div className="flex-row flex-end">
           <button type="submit">Submit</button>
         </div>
