@@ -19,6 +19,11 @@ type Project {
 }
 
   type Query {
+    student(id: ID!, firstname: String lastname: String): Student
+    students: [Student]
+    project(id: ID!, name: String): Project
+    projects: [Project]
+    student: Student
   }
 
   type Mutation {
