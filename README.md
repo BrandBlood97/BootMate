@@ -14,7 +14,7 @@
 		Login
 			Email
 			password
-## Profile Page
+## Profile Page (New HomePage)
 		update profile
 		add projects 	##Student Card
 		Name [ will link to Profile Page]
@@ -25,3 +25,6 @@
 
 ## Nav Bar
 	Search (by name, project name, **looking for work**, **looking for collaboration**)
+
+    **Home Button**
+    **Logout Button**
