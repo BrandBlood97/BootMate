@@ -16,7 +16,7 @@
 			password
 ## Profile Page (New HomePage)
 		update profile
-		add projects 	##Student Card
+		add projects	##Student Card
 		Name [ will link to Profile Page]
 		Email [will be active link]
 		Looking for work

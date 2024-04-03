@@ -1,17 +1,51 @@
+import { useState } from 'react';
+import { useMutation } from '@apollo/client';
+import Auth from '../utils/auth';
+import { ADD_STUDENT } from '../utils/mutations';
+import { useHistory } from 'react-router-dom';
 
-export default function SignupPage() {
+function SignupPage(props) {
+  const [formState, setFormState] = useState({ email: '', password: '' });
+  const [addStudent] = useMutation(ADD_STUDENT);
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    const mutationResponse = await addStudent({
+      variables: {
+        email: formState.email,
+        password: formState.password,
+        firstName: formState.firstName,
+        lastName: formState.lastName,
+        openEmploy: formState.openEmploy,
+      },
+    });
+    const token = mutationResponse.data.addUser.token;
+    Auth.login(token);
+
+    const history = useHistory();
+    history.push('/profile');
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
+      
   return (
     <div className="container my-1">
 
       <h2>Signup</h2>
-      <form id="right">
+      <form onSubmit={handleFormSubmit}>
         <div class="form-input">
           <label htmlFor="firstName">First Name:</label>
           <input placeholder="First"
             name="firstName"
             type="firstName"
             id="firstName"
-            // onChange={handleChange}
+            onChange={handleChange}
           />
         </div>
 
@@ -22,7 +56,7 @@ export default function SignupPage() {
             name="lastName"
             type="lastName"
             id="lastName"
-            // onChange={handleChange}
+            onChange={handleChange}
           />
         </div>
         <div className="flex-row space-between my-2">
@@ -32,7 +66,7 @@ export default function SignupPage() {
             name="email"
             type="email"
             id="email"
-            // onChange={handleChange}
+            onChange={handleChange}
           />
         </div>
         <div className="flex-row space-between my-2">
@@ -42,22 +76,9 @@ export default function SignupPage() {
             name="password"
             type="password"
             id="pwd"
-            // onChange={handleChange}
+            onChange={handleChange}
           />
         </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="pwd-confirm">Confirm Password:</label>
-          <input
-            placeholder="******"
-            name="password"
-            type="password"
-            id="pwd-comfirm"
-            // onChange={handleChange}
-          />
-        </div>
-        </form>
-
-        <form id="left">
         <div className="flex-row space-between my-2">
           <label htmlFor="pwd">Looking For Work</label>
           <input
@@ -66,7 +87,7 @@ export default function SignupPage() {
             type="list"
             list="options"
             id="work"
-            // onChange={handleChange}
+            onChange={handleChange}
           />
         </div>
         <div className="flex-row space-between my-2">
@@ -77,7 +98,7 @@ export default function SignupPage() {
             type="list"
             list="options"
             id="collab"
-            // onChange={handleChange}
+            onChange={handleChange}
           />
         </div>
         <div className="flex-row space-between my-2">
@@ -87,7 +108,7 @@ export default function SignupPage() {
             name="LinkedIn"
             type="text"
             id="LinkedIn"
-            // onChange={handleChange}
+            onChange={handleChange}
           />
         </div>
         <div className="flex-row space-between my-2">
@@ -97,7 +118,7 @@ export default function SignupPage() {
             name="GitHub"
             type="text"
             id="GitHub"
-            // onChange={handleChange}
+            onChange={handleChange}
           />
         </div>
         <div className="flex-row flex-end">
@@ -111,3 +132,5 @@ export default function SignupPage() {
     </div>
   );
 }
+
+export default SignupPage;
