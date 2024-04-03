@@ -2,28 +2,31 @@ import { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import Auth from '../utils/auth';
 import { ADD_STUDENT } from '../utils/mutations';
-import { useHistory } from 'react-router-dom';
+// import { redirect } from "react-router-dom";
 
-function SignupPage(props) {
+
+function SignupPage() {
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [addStudent] = useMutation(ADD_STUDENT);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    const mutationResponse = await addStudent({
-      variables: {
-        email: formState.email,
-        password: formState.password,
-        firstName: formState.firstName,
-        lastName: formState.lastName,
-        openEmploy: formState.openEmploy,
-      },
-    });
-    const token = mutationResponse.data.addUser.token;
-    Auth.login(token);
-
-    const history = useHistory();
-    history.push('/profile');
+    try{
+        const mutationResponse = await addStudent({
+            variables: {
+            email: "christopher.ferraro@gmail.com",
+            password: "123",
+            firstName: "Chris",
+            lastName: "Ferraro",
+            openEmploy: true,
+            },
+        });
+        const token = mutationResponse.data.addStudent.token;
+        Auth.login(token);
+    } catch (e) {
+        console.log(e);
+    }
+    // redirect('/login');
   };
 
   const handleChange = (event) => {
@@ -39,7 +42,7 @@ function SignupPage(props) {
 
       <h2>Signup</h2>
       <form onSubmit={handleFormSubmit}>
-        <div class="form-input">
+        <div className="form-input">
           <label htmlFor="firstName">First Name:</label>
           <input placeholder="First"
             name="firstName"
@@ -87,37 +90,6 @@ function SignupPage(props) {
             type="list"
             list="options"
             id="work"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="pwd">Looking For Collaboration</label>
-          <input
-            placeholder="Select an Option"
-            name="collab"
-            type="list"
-            list="options"
-            id="collab"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="linkedin">LinkedIn Profile: </label>
-          <input
-            placeholder="Enter LinkedIn Profile URL"
-            name="LinkedIn"
-            type="text"
-            id="LinkedIn"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="github">GitHub Profile: </label>
-          <input
-            placeholder="Enter GitHub Profile URL"
-            name="GitHub"
-            type="text"
-            id="GitHub"
             onChange={handleChange}
           />
         </div>

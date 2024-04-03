@@ -32,7 +32,7 @@ type Auth {
 
   type Mutation {
     # ADD AUTH
-    addStudent(firstName: String!, lastName: String!, email: String!, password: String!, openEmploy: Boolean!): Auth
+    addStudent(firstName: String!, lastName: String!, email: String!, password: String!, openEmploy: Boolean): Auth
     addProject(name: String!, baseLanguage: String!, openCollab: Boolean!): Student
     removeProject(projectId: ID!): Student
     updateProject(projectId: ID!, openCollab: Boolean!, description: String! ): Project

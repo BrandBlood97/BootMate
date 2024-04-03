@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { LOGIN } from '../utils/mutations';
 import Auth from '../utils/auth';
-// import { Redirect } from 'react-router-dom';
-import { useHistory } from 'react-router-dom';
+import { redirect } from 'react-router-dom';
+
 
 function LoginPage(props) {
     
@@ -19,8 +19,9 @@ function LoginPage(props) {
       const token = mutationResponse.data.login.token;
       Auth.login(token);
 
-      const history = useHistory();
-      history.push('/profile');
+        if (token) {
+            return redirect('/profile');
+            }
 
     } catch (e) {
       console.log(e);
