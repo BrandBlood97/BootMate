@@ -1,5 +1,6 @@
 const { Student, Project } = require("../models");
 const { signToken, AuthenticationError } = require("../utils/auth");
+const bcrypt = require("bcrypt");
 
 const resolvers = {
   Query: {
@@ -130,13 +131,13 @@ const resolvers = {
       const user = await Student.findOne({ email });
 
       if (!user) {
-        throw AuthenticationError;
+      throw AuthenticationError;
       }
 
-      const correctPw = await user.isCorrectPassword(password);
+      const correctPw = await bcrypt.compare(password, user.password);
 
       if (!correctPw) {
-        throw AuthenticationError;
+      throw AuthenticationError;
       }
 
       const token = signToken(user);
@@ -144,7 +145,7 @@ const resolvers = {
       return { token, user };
     },
 
-  },
-};
+    },
+  };
 
 module.exports = resolvers;
