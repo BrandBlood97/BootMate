@@ -14,11 +14,11 @@ function SignupPage() {
     try{
         const mutationResponse = await addStudent({
             variables: {
-            email: "christopher.ferraro@gmail.com",
-            password: "123",
-            firstName: "Chris",
-            lastName: "Ferraro",
-            openEmploy: true,
+            email: formState.email,
+            password: formState.password,
+            firstName: formState.firstName,
+            lastName: formState.lastName,
+            openEmploy: formState.openEmploy === "Yes" ? true : false,
             },
         });
         const token = mutationResponse.data.addStudent.token;
@@ -26,7 +26,6 @@ function SignupPage() {
     } catch (e) {
         console.log(e);
     }
-    // redirect('/login');
   };
 
   const handleChange = (event) => {
@@ -86,7 +85,7 @@ function SignupPage() {
           <label htmlFor="pwd">Looking For Work</label>
           <input
             placeholder="Select an Option"
-            name="work"
+            name="openEmploy"
             type="list"
             list="options"
             id="work"
