@@ -4,7 +4,7 @@ export const LOGIN = gql`
   mutation login($email: String!, $password: String!) {
     login(email: $email, password: $password) {
       token
-      user {
+      student {
         _id
       }
     }
@@ -12,12 +12,12 @@ export const LOGIN = gql`
 `;
 
 export const ADD_STUDENT = gql`
-mutation Mutation($firstName: String!, $lastName: String!, $email: String!, $password: String!, $openEmploy: Boolean) {
-    addStudent(firstName: $firstName, lastName: $lastName, email: $email, password: $password, openEmploy: $openEmploy) {
-      token
-      student {
-        id
-      }
+  mutation Mutation($firstName: String!, $lastName: String!, $email: String!, $password: String!, $openEmploy: Boolean) {
+  addStudent(firstName: $firstName, lastName: $lastName, email: $email, password: $password, openEmploy: $openEmploy) {
+    token
+    student {
+      id
     }
   }
+}
 `;

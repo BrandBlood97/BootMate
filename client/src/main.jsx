@@ -8,9 +8,6 @@ import LoginPage from './pages/LoginPage.jsx';
 import ProfilePage from './pages/ProfilePage.jsx';
 import SignupPage from './pages/SignupPage.jsx';
 
-
-// import 'bootstrap/dist/css/bootstrap.min.css';
-
 const router = createBrowserRouter([
   {
     path: '/',
