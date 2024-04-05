@@ -3,7 +3,7 @@ import { useMutation } from '@apollo/client';
 import Auth from '../utils/auth';
 import { ADD_STUDENT } from '../utils/mutations';
 // import { redirect } from "react-router-dom";
-
+import { ButtonGroup, Button, Input, InputGroup, InputLeftElement, RadioGroup, Radio, Stack, Container, Heading, Text, Box, } from "@chakra-ui/react";
 
 function SignupPage() {
   const [formState, setFormState] = useState({ email: '', password: '' });
@@ -37,71 +37,82 @@ function SignupPage() {
   };
       
   return (
-    <div className="container my-1">
-
-      <h2>Signup</h2>
-      <form onSubmit={handleFormSubmit}>
-        <div className="form-input">
-          <label htmlFor="firstName">First Name:</label>
-          <input placeholder="First"
+    <Container maxW='lg' centerContent>
+      <Heading mt="50px" mb='20px' fontSize='6xl'>BootMate()</Heading>
+      <Heading mt="50px" mb='20px' fontSize='3xl'>Sign Up</Heading>
+      <Stack spacing={3}>
+        <form onSubmit={handleFormSubmit}>
+        <InputGroup>
+          <InputLeftElement pointerEvents='none'>
+          </InputLeftElement>
+          <Input placeholder="First"
             name="firstName"
             type="firstName"
             id="firstName"
-            onChange={handleChange}
-          />
-        </div>
-
-        <div className="flex-row space-between my-2">
-          <label htmlFor="lastName">Last Name:</label>
-          <input
-            placeholder="Last"
+            onChange={handleChange} />
+        </InputGroup>
+        <InputGroup>
+          <InputLeftElement pointerEvents='none'>
+          </InputLeftElement>
+          <Input placeholder="Last"
             name="lastName"
             type="lastName"
             id="lastName"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="email">Email:</label>
-          <input
-            placeholder="youremail@test.com"
+            onChange={handleChange} />
+        </InputGroup>
+        <InputGroup>
+          <InputLeftElement pointerEvents='none'>
+          </InputLeftElement>
+          <Input placeholder="youremail@test.com"
             name="email"
             type="email"
             id="email"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="pwd">Password:</label>
-          <input
-            placeholder="******"
+            onChange={handleChange} />
+        </InputGroup>
+        <InputGroup>
+          <InputLeftElement pointerEvents='none'>
+          </InputLeftElement>
+          <Input placeholder="******"
             name="password"
             type="password"
             id="pwd"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="pwd">Looking For Work</label>
-          <input
-            placeholder="Select an Option"
+            onChange={handleChange} />
+        </InputGroup>
+        <InputGroup>
+          <InputLeftElement pointerEvents='none'>
+          </InputLeftElement>
+          <Input placeholder="Select an Option"
             name="openEmploy"
             type="list"
             list="options"
             id="work"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex-row flex-end">
-          <button type="submit">Submit</button>
-        </div>
+            onChange={handleChange} />
+        </InputGroup>
+      <Container maxW='lg' centerContent>
+        <Box>
+          <Text fontSize='2xl' p='15'>Seeking Employment</Text>
+          <RadioGroup defaultValue='1'>
+            <Stack spacing={3} direction='row'>
+              <Radio value='1'>Yes</Radio>
+              <Radio value='2'>No</Radio>
+            </Stack>
+          </RadioGroup>
+        </Box>
+        <Box>
+          <ButtonGroup gap='4'>
+            <Button colorScheme='blackAlpha'>Enter</Button>
+          </ButtonGroup>
+        </Box>
+
+       
+      </Container>
       </form>
-      <datalist id="options">
-        <option value="Yes"></option>
-        <option value="No"></option>
-        </datalist> 
-    </div>
-  );
+      </Stack>
+   
+    </Container>
+
+  )
 }
+
 
 export default SignupPage;
