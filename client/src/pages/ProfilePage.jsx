@@ -32,10 +32,7 @@ export default function ProfilePage() {
                 <input type="text" placeholder="Project Name" />
                 <button>Add Project</button>
             </div>
-            <div id="social-links">
-                <img src="" alt="LinkedIn" href=""/>
-                <img src="" alt="GitHub" href=""/>
-            </div>
+
 
         </section>
     );
