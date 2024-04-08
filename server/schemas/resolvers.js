@@ -25,17 +25,17 @@ const resolvers = {
       return Project.findById(id).populate('student');
     },
 
-    student: async (parent, { id, name }) => {
-      const params = {};
-      if (id) {
-        params.id = id;
-      }
-      if (name) {
-        params.name = name;
-      }
+    student: async (parent, { id }) => {
 
-      return Student.find(params).populate('student');
+      return Student.findOne({ id }).populate('student');
     },
+
+    me: async (parent, args, context) => {
+      if (context.student) {
+        return Student.findById(context.student._id).populate('projects');
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    }
   },
 
 

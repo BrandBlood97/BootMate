@@ -1,10 +1,10 @@
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import './index.css';
 
 import App from './App.jsx';
 import ErrorPage from './pages/ErrorPage.jsx';
 import HomePage from './pages/HomePage.jsx';
-import LoginPage from './pages/LoginPage.jsx';
 import ProfilePage from './pages/ProfilePage.jsx';
 import SignupPage from './pages/SignupPage.jsx';
 
@@ -18,10 +18,10 @@ const router = createBrowserRouter([
         index: true,
         element: <HomePage/>
       }, {
-        path: '/login',
-        element: <LoginPage />
+        path: '/profile/:id',
+        element: <ProfilePage />
       }, {
-        path: '/profile',
+        path: '/me',
         element: <ProfilePage />
       }, {
         path: '/signup',

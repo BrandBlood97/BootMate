@@ -2,12 +2,17 @@ import { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import Auth from '../utils/auth';
 import { ADD_STUDENT } from '../utils/mutations';
-// import { redirect } from "react-router-dom";
 import { ButtonGroup, Button, Input, InputGroup, InputLeftElement, RadioGroup, Radio, Stack, Container, Heading, Text, Box, } from "@chakra-ui/react";
 
 function SignupPage() {
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [addStudent] = useMutation(ADD_STUDENT);
+
+  const [file, setFile] = useState({ image: ''});
+  function handleUpload(e) {
+      console.log(e.target.files);
+      setFile(URL.createObjectURL(e.target.files[0]));
+  }
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -19,6 +24,7 @@ function SignupPage() {
             firstName: formState.firstName,
             lastName: formState.lastName,
             openEmploy: formState.openEmploy === "Yes" ? true : false,
+            image: file.image,
             },
         });
         const token = mutationResponse.data.addStudent.token;
@@ -37,80 +43,105 @@ function SignupPage() {
   };
       
   return (
-    <Container maxW='lg' centerContent>
-      <Heading mt="50px" mb='20px' fontSize='6xl'>BootMate()</Heading>
-      <Heading mt="50px" mb='20px' fontSize='3xl'>Sign Up</Heading>
-      <Stack spacing={3}>
+    <section>
+        <Container maxW='lg' centerContent>
+          <Heading mt="50px" mb='20px' fontSize='6xl'>BootMate()</Heading>
+          <Heading mt="50px" mb='20px' fontSize='3xl'>Sign Up</Heading>
+          <Stack spacing={3}>
+      <div className="signup-page">
+
+
         <form onSubmit={handleFormSubmit}>
         <InputGroup>
-          <InputLeftElement pointerEvents='none'>
-          </InputLeftElement>
-          <Input placeholder="First"
-            name="firstName"
-            type="firstName"
-            id="firstName"
-            onChange={handleChange} />
+          <Text fontSize='2xl' p='5'>Upload Profile Picture</Text>
+            <Input 
+              name="image"
+              type="file" 
+              id="image"
+              onChange={handleUpload} />
+            <img id="upload-preview" src={file} />
         </InputGroup>
-        <InputGroup>
-          <InputLeftElement pointerEvents='none'>
-          </InputLeftElement>
-          <Input placeholder="Last"
-            name="lastName"
-            type="lastName"
-            id="lastName"
-            onChange={handleChange} />
-        </InputGroup>
-        <InputGroup>
-          <InputLeftElement pointerEvents='none'>
-          </InputLeftElement>
-          <Input placeholder="youremail@test.com"
-            name="email"
-            type="email"
-            id="email"
-            onChange={handleChange} />
-        </InputGroup>
-        <InputGroup>
-          <InputLeftElement pointerEvents='none'>
-          </InputLeftElement>
-          <Input placeholder="******"
-            name="password"
-            type="password"
-            id="pwd"
-            onChange={handleChange} />
-        </InputGroup>
-        <InputGroup>
-          <InputLeftElement pointerEvents='none'>
-          </InputLeftElement>
-          <Input placeholder="Select an Option"
-            name="openEmploy"
-            type="list"
-            list="options"
-            id="work"
-            onChange={handleChange} />
-        </InputGroup>
-      <Container maxW='lg' centerContent>
-        <Box>
-          <Text fontSize='2xl' p='15'>Seeking Employment</Text>
-          <RadioGroup defaultValue='1'>
-            <Stack spacing={3} direction='row'>
-              <Radio value='1'>Yes</Radio>
-              <Radio value='2'>No</Radio>
-            </Stack>
-          </RadioGroup>
-        </Box>
-        <Box>
-          <ButtonGroup gap='4'>
-            <Button colorScheme='blackAlpha'>Enter</Button>
-          </ButtonGroup>
-        </Box>
 
-       
-      </Container>
-      </form>
-      </Stack>
-   
-    </Container>
+          <InputGroup>
+            <InputLeftElement pointerEvents='none'>
+            </InputLeftElement>
+            <Input placeholder="First Name"
+              name="firstName"
+              type="firstName"
+              id="firstName"
+              onChange={handleChange} />
+          </InputGroup>
 
+          <InputGroup>
+            <InputLeftElement pointerEvents='none'>
+            </InputLeftElement>
+            <Input placeholder="Last Name"
+              name="lastName"
+              type="lastName"
+              id="lastName"
+              onChange={handleChange} />
+          </InputGroup>
+
+          <InputGroup>
+            <InputLeftElement pointerEvents='none'>
+            </InputLeftElement>
+            <Input placeholder="Email"
+              name="email"
+              type="email"
+              id="email"
+              onChange={handleChange} />
+          </InputGroup>
+
+          <InputGroup>
+            <InputLeftElement pointerEvents='none'>
+            </InputLeftElement>
+            <Input placeholder="Password"
+              name="password"
+              type="password"
+              id="pwd"
+              onChange={handleChange} />
+          </InputGroup>
+
+          <InputGroup>
+            <Text fontSize='2xl' p='5'>Seeking Employment</Text>
+            <InputLeftElement pointerEvents='none'>
+            </InputLeftElement>
+            <br></br>
+            <br></br>
+            <input placeholder="Select an Option"
+              name="openEmploy"
+              type="list"
+              list="openEmploy"
+              id="openEmploy"
+              onChange={handleChange} />
+            <datalist id="openEmploy" name="openEmploy">
+              <option value="no"/>
+              <option value="No"/>
+            </datalist>
+          </InputGroup>
+
+          <Container maxW='lg' centerContent>           
+            {/* <Box>
+              <RadioGroup defaultValue='1'>
+                <Stack spacing={3} direction='row'>
+                  <Radio value='1'>Yes</Radio>
+                  <Radio value='2'>No</Radio>
+                </Stack>
+              </RadioGroup>
+            </Box> */}
+
+            <Box>
+              <ButtonGroup gap='4'>
+                <Button colorScheme='blackAlpha' type="submit">Submit</Button>
+              </ButtonGroup>
+            </Box>          
+          </Container>
+        </form>
+      </div>
+          </Stack>
+      
+        </Container>
+    </section>
   )
 }
 
