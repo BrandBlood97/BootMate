@@ -114,7 +114,7 @@ export default function HomePage() {
           </>
        ):( 
         <div className="container">
-          <h1>Welcom to bootMate()</h1>
+          <h1>Welcome to bootMate()</h1>
 
           <h2 id="subtag">Connect. Collaborate. Create</h2>
             <div className="text">
