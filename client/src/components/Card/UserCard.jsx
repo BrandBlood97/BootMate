@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Avatar from "../../assets/Avatar.png";
 
 const UserCard = ({ students }) => {
     if (!students) {
@@ -14,7 +15,7 @@ const UserCard = ({ students }) => {
                         <div className="user">
                             <div className="user-image">
                                 <div className="banner-image">
-                                    <img src={students.image} alt="user" />
+                                    <img src={ Avatar } alt="user" />
                                 </div>
                             </div>
                             

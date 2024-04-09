@@ -115,7 +115,7 @@ function SignupPage() {
               id="openEmploy"
               onChange={handleChange} />
             <datalist id="openEmploy" name="openEmploy">
-              <option value="no"/>
+              <option value="Yes"/>
               <option value="No"/>
             </datalist>
           </InputGroup>

@@ -5,13 +5,13 @@ import { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { LOGIN } from '../utils/mutations';
 import { useQuery } from '@apollo/client';
-import { QUERY_STUDENTS, QUERY_STUDENT  } from '../utils/queries';
+import { QUERY_STUDENTS } from '../utils/queries';
 import UserCard from '../components/Card/UserCard';
 
 export default function HomePage() {
 
   const searchAll = () => {
-      const {loading, data }  = useQuery(QUERY_STUDENTS, QUERY_STUDENT);
+      const {loading, data }  = useQuery(QUERY_STUDENTS);
       const students = data?.students || [];
 
     return (

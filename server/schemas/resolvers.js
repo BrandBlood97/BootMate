@@ -1,6 +1,7 @@
 const { Student, Project } = require("../models");
 const { signToken, AuthenticationError } = require("../utils/auth");
 const bcrypt = require("bcrypt");
+import { Types } from 'mongoose';
 
 const resolvers = {
   Query: {
@@ -26,8 +27,9 @@ const resolvers = {
     },
 
     student: async (parent, { id }) => {
-
-      return Student.findOne({ id }).populate('student');
+      const obJectId = new Types.ObjectId(id);
+      
+      return Student.findOne({ _id: obJectId }).populate('projects');
     },
 
     me: async (parent, args, context) => {

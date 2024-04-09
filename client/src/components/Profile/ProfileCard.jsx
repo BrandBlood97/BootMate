@@ -7,8 +7,8 @@ import { UPDATE_PROJECT } from '../../utils/mutations';
 import Auth from '../../utils/auth';
 import { useLocation } from 'react-router-dom';
 
-const ProfileCard = ({ user }) => {
-    if (!user) {
+const ProfileCard = ({ student }) => {
+    if (!student) {
         return <h3 className="error">No student data found</h3>;
     }
 
@@ -181,11 +181,11 @@ const ProfileCard = ({ user }) => {
     if (location.pathname === '/profile/me') {
     return (
         <section>
-            {user.map((student) => (
+            {student.map((student) => (
                 <div className="profile-page" key={student.id}>
                     <div className="profile-container">
                         <div id="profile-pic">
-                            <img src={student.image} alt="Profile Picture" />
+                            <img src="client/src/assets/Avatar.png" alt="Profile Picture" />
                             <h1 className="profile-text">{student.firstName} {student.lastName}</h1>
                         </div>
                         <br></br>
@@ -227,7 +227,7 @@ const ProfileCard = ({ user }) => {
     } else {
         return (
             <section>
-                {user.map((student) => (
+                {student.id.map((student) => (
                     <div className="profile-page" key={student.id}>
                         <div className="profile-container">
                             <div id="profile-pic">
