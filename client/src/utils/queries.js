@@ -1,14 +1,13 @@
 import { gql } from '@apollo/client';
 
 export const QUERY_STUDENT = gql`
-    query Student($id: ID, $firstname: String, $lastname: String) {
+    query Student($id: ID!, $firstname: String, $lastname: String) {
         student(id: $id, firstname: $firstname, lastname: $lastname) {
             id
             firstName
             lastName
             email
             openEmploy
-            image
             projects {
                 id
                 name
@@ -28,14 +27,6 @@ export const QUERY_STUDENTS = gql`
             lastName
             email
             openEmploy
-            image
-            projects {
-                id
-                name
-                baseLanguage
-                openCollab
-                description
-            }
         }
     }
 `;
