@@ -22,7 +22,6 @@ const ProfileCard = ({ student }) => {
     const [formState, setFormState] = useState({
       name: "",
       baseLanguage: "",
-      openCollab: "",
       description: "",
     });
     const [newProject] = useMutation(ADD_PROJECT);
@@ -30,17 +29,16 @@ const ProfileCard = ({ student }) => {
     const handleFormSubmit = async (event) => {
       event.preventDefault();
       try {
-        const mutationResponse = await newProject({
+        await newProject({
           variables: {
             name: formState.name,
             baseLanguage: formState.baseLanguage,
-            openCollab: formState.openCollab,
+            openCollab: formState.openCollab === "Yes" ? true : false,
             description: formState.description,
           },
         });
-        const token = mutationResponse.data.login.token;
-        Auth.login(token);
-      } catch (e) {
+      }
+      catch (e) {
         console.log(e);
       }
     };
@@ -72,23 +70,26 @@ const ProfileCard = ({ student }) => {
             </label>
             <label>
               Base Language:
-              <input
-                placeholder="Base Language"
+              <select
                 name="baseLanguage"
-                type="text"
                 id="baseLanguage"
                 onChange={handleChange}
-              />
+              >
+                <option value="">Select</option>
+                <option value="JavaScript">JavaScript</option>
+                <option value="Python">Python</option>
+                <option value="Java">Java</option>
+                <option value="C++">C++</option>
+                <option value="C#">C#</option>
+              </select>
             </label>
             <label>
               Open Collaboration:
-              <input
-                placeholder="Open Collaboration"
-                name="openCollab"
-                type="text"
-                id="openCollab"
-                onChange={handleChange}
-              />
+              <select name="openCollab" id="openCollab" onChange={handleChange}>
+                <option value="">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
             </label>
             <label>
               Description:
@@ -100,7 +101,7 @@ const ProfileCard = ({ student }) => {
                 onChange={handleChange}
               />
             </label>
-            <button type="submit" onClick={newProject}>
+            <button type="submit">
               Add Project
             </button>
           </form>

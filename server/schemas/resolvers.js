@@ -56,10 +56,6 @@ const resolvers = {
       context
     ) => {
       
-      // Check if the user is authenticated
-      if (!context.isAuth) {
-        throw new Error("Unauthenticated!");
-      }
       // Get the current student
       const studentId = context.studentId;
       
@@ -88,11 +84,7 @@ const resolvers = {
 
     // Remove a project
     removeProject: async (_, { projectId }, context) => {
-
-      // Check if the user is authenticated and get the current student
-      if (!context.isAuth) {
-        throw new Error("Unauthenticated!");
-      }
+      
       const studentId = context.studentId;
 
       // Remove the project from the database

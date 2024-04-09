@@ -23,8 +23,8 @@ export const ADD_STUDENT = gql`
 `;
 
 export const ADD_PROJECT = gql`
-  mutation addProject($name: String!, $baseLanguage: String!, $openCollab: Boolean!) {
-    addProject(name: $name, baseLanguage: $baseLanguage, openCollab: $openCollab) {
+  mutation addProject($name: String!, $baseLanguage: String!, $openCollab: Boolean!, $description: String!) {
+    addProject(name: $name, baseLanguage: $baseLanguage, openCollab: $openCollab, description: $description) {
       id
       name
       baseLanguage
