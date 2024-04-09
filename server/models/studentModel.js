@@ -1,5 +1,6 @@
 const { Schema, model } = require("mongoose");
 const bcrypt = require("bcrypt");
+const Project = require("./projectModel");
 
 const studentSchema = new Schema({
   firstName: {

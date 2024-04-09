@@ -34,7 +34,7 @@ type Auth {
 
   type Mutation {
     addStudent(firstName: String!, lastName: String!, email: String!, password: String!, openEmploy: Boolean, image: String): Auth
-    addProject(name: String!, baseLanguage: String!, openCollab: Boolean!): Student
+    addProject(name: String!, baseLanguage: String!, openCollab: Boolean!, description: String!): Project
     removeProject(projectId: ID!): Student
     updateProject(projectId: ID!, openCollab: Boolean!, description: String! ): Project
     login(email: String!, password: String!): Auth
