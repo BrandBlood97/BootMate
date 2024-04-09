@@ -15,7 +15,7 @@ export default function ProfilePage() {
     const user = data?.me || data?.student || {};
 
     if (Auth.loggedIn() && Auth.getProfile().data.id === userParams) {
-      return <Navigate to="/me" />;
+      return <Navigate to="profile/me" />;
     }
     return (
       <div>

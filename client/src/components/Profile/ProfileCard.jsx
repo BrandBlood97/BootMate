@@ -7,8 +7,8 @@ import { UPDATE_PROJECT } from '../../utils/mutations';
 import Auth from '../../utils/auth';
 import { useLocation } from 'react-router-dom';
 
-const ProfileCard = ({ user }) => {
-    if (!user) {
+const ProfileCard = ({ student }) => {
+    if (!student) {
         return <h3 className="error">No student data found</h3>;
     }
 
