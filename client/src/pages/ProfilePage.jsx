@@ -1,33 +1,26 @@
 import NavBar from "../components/Nav/NavBar";
-import { Navigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
-import { QUERY_STUDENT, QUERY_ME } from "../utils/queries";
+import { QUERY_STUDENT} from "../utils/queries";
 import ProfileCard from "../components/Profile/ProfileCard";
-import Auth from "../utils/auth";
 
 export default function ProfilePage() {
-  const renderProfile = () => {
-    const { id: userParams } = useParams();
+  const { id } = useParams();
+  const { loading, error, data } = useQuery(QUERY_STUDENT, {
+    variables: { id },
+  });
+  
+  if (error) return <div>Error : {error.message}</div>;
+  if (loading) return <div>Loading...</div>;
 
-    const { loading, data } = useQuery(userParams ? QUERY_STUDENT : QUERY_ME, {
-      variables: { id: userParams },
-    });
-    const user = data?.me || data?.student || {};
-
-    if (Auth.loggedIn() && Auth.getProfile().data.id === userParams) {
-      return <Navigate to="/me" />;
-    }
-    return (
-      <div>
-        {loading ? <div>Loading...</div> : <ProfileCard student={user} />}
-      </div>
-    );
-  };
+  const student = data.student;
 
   return (
     <section>
       <NavBar />
-      <div>{renderProfile()}</div>
+      <div>
+        {loading ? <div>Loading...</div> : <ProfileCard student={student} />}
+      </div>
     </section>
-  );
-}
+  )
+};
